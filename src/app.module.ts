@@ -1,12 +1,24 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
-import { ProductModule } from './product/product.module';
+import { AuthModule } from './api/auth/auth.module';
+import { UserModule } from './api/user/user.module';
+import { ProductModule } from './api/product/product.module';
+
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { getEnvPath } from './common/helper/env.helper';
+import { TypOrmConfigService } from './shared/typeorm/typeorm.service';
+import { ApiModule } from './api/api.module';
+
+const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
 @Module({
-  imports: [AuthModule, UserModule, ProductModule],
+  imports: [
+    ConfigModule.forRoot({ envFilePath, isGlobal: true }),
+    TypeOrmModule.forRootAsync({ useClass: TypOrmConfigService}),
+    ApiModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
