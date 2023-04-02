@@ -10,6 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getEnvPath } from './common/helper/env.helper';
 import { TypOrmConfigService } from './shared/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
+import { ProductCatModule } from './api/product-cat/product-cat.module';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -18,6 +19,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
     TypeOrmModule.forRootAsync({ useClass: TypOrmConfigService}),
     ApiModule,
+    ProductCatModule,
   ],
   controllers: [AppController],
   providers: [AppService],
