@@ -17,6 +17,9 @@ lastname: string
 @Column()
 email: string
 
+@Column()
+password: string
+
 @Column({type:"timestamp"})
 created_at: Date
 

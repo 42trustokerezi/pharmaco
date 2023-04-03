@@ -1,4 +1,4 @@
-import { IsUUID, IsEmail, IsString } from 'class-validator'
+import { IsUUID, IsEmail, IsString, IsStrongPassword, IsDate } from 'class-validator'
 
 export class registerUserDto {
     @IsUUID()
@@ -16,5 +16,17 @@ export class registerUserDto {
     @IsEmail()
     public readonly email: string;
 
+    @IsStrongPassword()
+    public readonly password: string;
 
+    @IsDate()
+    public readonly created_at: Date;
+}
+
+export class updatePasswordDto {
+    @IsStrongPassword()
+    public readonly password: string;
+
+    @IsDate()
+    public readonly updated_at: Date;
 }
