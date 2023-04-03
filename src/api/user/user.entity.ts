@@ -6,7 +6,7 @@ export class User {
 id: string
 
 @Column()
-usernames: string
+username: string
 
 @Column()
 firstname: string
