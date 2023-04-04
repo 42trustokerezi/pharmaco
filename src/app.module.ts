@@ -12,6 +12,7 @@ import { TypOrmConfigService } from './shared/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
 import { ProductCatModule } from './api/product-cat/product-cat.module';
 
+
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
 @Module({
