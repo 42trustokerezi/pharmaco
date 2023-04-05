@@ -10,12 +10,16 @@ import { Repository } from 'typeorm';
 import { registerUserDto } from './user.dto';
 import { Request } from 'express';
 import { User } from './user.entity';
-import { Helper } from './helper';
+import { HelperService } from '../helper/helper.service';
 
 @Injectable()
 export class UserService {
-    private readonly repository: Repository<User>
-    private readonly helper: Helper
+    @InjectRepository(User)
+    private readonly repository: Repository<User>;
+    
+    @Inject(HelperService)
+    private readonly helper: HelperService;
+
 
   public async registerUser(
     body: registerUserDto,

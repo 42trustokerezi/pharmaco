@@ -11,6 +11,7 @@ import { getEnvPath } from './common/helper/env.helper';
 import { TypOrmConfigService } from './shared/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
 import { ProductCatModule } from './api/product-cat/product-cat.module';
+import { HelperService } from './api/helper/helper.service';
 
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);

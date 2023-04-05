@@ -2,10 +2,10 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
-import { User } from "./user.entity";
+import { User } from "../user/user.entity";
 
 @Injectable()
-export class Helper {
+export class HelperService {
 
 
     /** validate user's password */

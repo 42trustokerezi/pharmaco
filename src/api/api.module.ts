@@ -3,6 +3,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
 import { ProductCat } from './product-cat/product-cat.entity';
+import { HelperModule } from './helper/helper.module';
 
 
 @Module({
@@ -11,6 +12,7 @@ import { ProductCat } from './product-cat/product-cat.entity';
         AuthModule,
         ProductModule,
         ProductCat,
+        HelperModule
     ],
     providers: [],
 })
